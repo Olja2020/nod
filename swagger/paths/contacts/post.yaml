@@ -1,0 +1,68 @@
+tags:
+  - Students
+summary: Create student
+operationId: createStudent
+description: 'Create a student'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - name
+          - phoneNumber
+          - email
+          - isFavourite
+          - contactType
+          - photo
+        properties:
+          name:
+            description: "Contact's name"
+            type: string
+            example: 'John Doe'
+          phoneNumber:
+            description: "Contact's phoneNumber"
+            type: string
+            example: '123456789'
+          email:
+            description: "Contact's email"
+            type: string
+            example: 'johndoe@gmail.com'
+          isFavourite:
+            description: "Contact's favourite"
+            type: boolean
+            default: true
+          contactType:
+            description: 'Whether is student on duty'
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: work
+            default: personal
+          photo:
+            description: "Contact's photo"
+            type: string
+responses:
+  '201':
+    description: Creates a contact
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully created a contact!
+            data:
+              type: object
+              $ref: ../../components/schemas/contact.yaml
+  '401':
+    $ref: ../../components/responses/401.yaml
