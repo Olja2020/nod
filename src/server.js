@@ -15,9 +15,9 @@ export const setupServer = () => {
   const app = express();
 
   app.use(cookieParser());
-
+ app.use(contactRouter);
   app.use(authRoutes);
-  app.use(contactRouter);
+ 
 
   app.use('*', notFoundHandler);
 
