@@ -15,20 +15,13 @@ import {
 import { validateBody } from '../middlewares/validateBody.js';
 import { authenticate } from '../middlewares/authenticate.js';
 import { upload } from '../middlewares/multer.js';
+
 const router = express.Router();
 const jsonParser = express.json();
+
 router.use(authenticate);
-router.get(
-  '/',
-  //authenticate,
-  ctrlWrapper(getContacts),
-);
-router.get(
-  '/:contactId',
-  //authenticate,
-  isValidID,
-  ctrlWrapper(getContactById),
-);
+router.get('/', authenticate, ctrlWrapper(getContacts));
+router.get('/:contactId', authenticate, isValidID, ctrlWrapper(getContactById));
 router.post(
   '/contacts',
   authenticate,
@@ -39,7 +32,7 @@ router.post(
 );
 router.patch(
   '/contacts/:contactId',
-  //authenticate,
+  authenticate,
   isValidID,
   jsonParser,
   upload.single('photo'),
@@ -48,7 +41,7 @@ router.patch(
 );
 router.delete(
   '/contacts/:contactId',
-  //authenticate,
+  authenticate,
   isValidID,
   ctrlWrapper(deleteContact),
 );
