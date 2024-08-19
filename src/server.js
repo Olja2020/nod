@@ -18,7 +18,7 @@ export const setupServer = () => {
  app.use(contactRouter);
    app.use('/uploads', express.static(UPLOAD_DIR));
   app.use('/api-docs', swaggerDocs());
-  app.use(authRoutes);
+  //app.use(authRoutes);
  
 
   app.use('*', notFoundHandler);
