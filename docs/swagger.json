@@ -121,11 +121,11 @@
       },
       "post": {
         "tags": [
-          "Students"
+          "Contacts"
         ],
-        "summary": "Create student",
-        "operationId": "createStudent",
-        "description": "Create a student",
+        "summary": "Create contact",
+        "operationId": "createContact",
+        "description": "Create a contact with payload",
         "security": [
           {
             "bearerAuth": []
@@ -166,7 +166,7 @@
                     "default": true
                   },
                   "contactType": {
-                    "description": "Whether is student on duty",
+                    "description": "Contact's type",
                     "type": "string",
                     "enum": [
                       "work",

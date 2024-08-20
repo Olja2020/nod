@@ -1,8 +1,8 @@
 tags:
-  - Students
-summary: Create student
-operationId: createStudent
-description: 'Create a student'
+  - Contacts
+summary: Create contact
+operationId: createContact
+description: 'Create a contact with payload'
 security:
   - bearerAuth: []
 requestBody:
@@ -35,7 +35,7 @@ requestBody:
             type: boolean
             default: true
           contactType:
-            description: 'Whether is student on duty'
+            description: "Contact's type"
             type: string
             enum: ['work', 'home', 'personal']
             example: work
