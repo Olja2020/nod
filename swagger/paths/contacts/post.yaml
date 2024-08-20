@@ -16,7 +16,6 @@ requestBody:
           - email
           - isFavourite
           - contactType
-          - photo
         properties:
           name:
             description: "Contact's name"
